@@ -13,11 +13,13 @@ function App() {
     soldOut: 0,
     description: "Wanna look AND date like a turtle? GET. THIS. T-NECK."
   }
+  let basket = ["hey", "how", "many", "items"];
+
   return (
     <div className="App">
       <Navigation />
-      <ProductList {...product} />
-      <Basket />
+      <ProductList product={product} />
+      <Basket basket={basket} />
     </div>
   );
 }
