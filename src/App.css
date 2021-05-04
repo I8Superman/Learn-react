@@ -13,7 +13,7 @@ body {
   border               : 1px black solid;
   display              : grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows   : 5vw 40vw;
+  grid-template-rows   : 10vh 80vh;
   grid-template-areas  :
     "nv nv"
     "pr bs";
@@ -58,4 +58,8 @@ body {
 .CheckoutForm {
   border: yellow solid 1px;
   height: 30vw;
+}
+
+.soldOut {
+  background: rgb(177, 7, 78);
 }
