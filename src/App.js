@@ -170,7 +170,7 @@ function App() {
     },
   ]);
 
-  let basket = ["hey", "how", "many", "items"];
+
   const addProduct = () => {
     updateProducts((prevList) =>
       prevList.concat({
@@ -191,10 +191,31 @@ function App() {
     );
   };
 
+  const [basket, updateBasket] = useState([{
+    id: 1234,
+    gender: "Lesbimens",
+    category: "Towels",
+    subcategory: "TopNotch!",
+    articletype: "Crothc-wear",
+    season: "Xmas eve",
+    productionyear: 1817,
+    usagetype: "Sexy",
+    productdisplayname: "XmasHoseLeather",
+    price: 30000,
+    discount: 0,
+    brandname: "Mikee",
+    soldout: 1,
+  }]);
+  const handleAddToBasket = (payload, e) => {
+    // console.log(payload);
+    // console.log(e);
+    updateBasket((prevBasket) => [...prevBasket, payload]);
+  };
+
   return (
     <div className="App">
       <Navigation />
-      <ProductList products={products} />
+      <ProductList products={products} onAddToBasket={handleAddToBasket} />
       <Basket basket={basket} />
       <button onClick={addProduct}>Add crazy product</button>
     </div>

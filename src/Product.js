@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 export default function Product(props) {
-    //console.log(props);
+    // console.log(props);
+    // console.log(props.addToBasket);
     // const clicked = (btn) => {
     //     console.log(btn);
     //     console.log(`You selected the ${props.id}`);
@@ -9,11 +10,15 @@ export default function Product(props) {
     const initial = 0;
     const [amount, setAmount] = useState(initial);
     const addOne = () => {
-        setAmount((prevAmount) => prevAmount + 1);
+        setAmount((prevAmount) => prevAmount + 1); // This argument (a function) gets passed to the relevant useStates' 'value' (?) 
     }
     const subtractOne = () => {
         setAmount((prevAmount) => prevAmount - 1);
     }
+    // const onClickAddToBasket = () => {
+    //     props.onAddToBasket(props);
+    // };
+
 
     return (
         <article className={props.soldOut ? "Product soldOut" : "Product"}>
@@ -26,6 +31,7 @@ export default function Product(props) {
             <button disabled={amount === 0} onClick={subtractOne}>-</button>
             <h3>{amount}</h3>
             <button onClick={addOne}>+</button>
+            <button onClick={(e) => { props.onAddToBasket(props, e) }}>Add to basket</button>
         </article>
     )
 }

@@ -1,9 +1,21 @@
-export default function MyBasket(props) {
-    //console.log(props);
+export default function MyBasket({ basket }) {
+    console.log(basket);
     return (
         <section className="MyBasket">
-            <p>We got {props.basket[0]}</p>
-            <p>You have {props.basket.length} items basking in your basket, totalling 0 DKK</p>
+            <p>You have {basket.length} items basking in your basket, totalling 0 DKK</p>
+            <ul>
+                {basket.map((item) => (
+                    <BasketItem name={item.productdisplayname} key={item.id} />
+                ))}
+            </ul>
         </section>
     )
+}
+
+function BasketItem(props) {
+    return (
+        <li>
+            {props.name}
+        </li>
+    );
 }
